@@ -38,6 +38,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger-toggle');
+    const navLinksContainer = document.getElementById('nav-links-container');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    if (hamburger && navLinksContainer) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = navLinksContainer.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+    }
+
     // Smooth scroll for nav links
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -53,8 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             }
-            // For cross-page links (e.g., index.html#section), 
-            // the default browser behavior will handle navigation.
         });
     });
 

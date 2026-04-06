@@ -48,7 +48,8 @@ em {
 
 .mono {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+    /* Reduced from 0.75rem */
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--accent-color);
@@ -95,6 +96,40 @@ nav {
 
 .nav-links a:hover {
     color: var(--text-primary);
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Sections */
@@ -166,12 +201,12 @@ section {
 }
 
 .hero-content .tagline {
-    font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    font-weight: 400;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--accent-color);
     margin-bottom: 2rem;
     display: block;
 }
@@ -244,7 +279,8 @@ section {
 /* Horizontal Zigzag Timeline */
 .timeline-wrapper {
     position: relative;
-    padding: 10rem 0;
+    padding: 0 0 10rem 0;
+    /* Removed top padding to reduce gap */
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -499,8 +535,10 @@ section {
     display: block;
     border: 1px solid var(--border-color);
     overflow: hidden;
-    width: 110%; /* Increase placeholder size slightly as permitted */
-    margin-left: -5%; /* Center the overflow */
+    width: 110%;
+    /* Increase placeholder size slightly as permitted */
+    margin-left: -5%;
+    /* Center the overflow */
 }
 
 .mockup-gif {
@@ -533,8 +571,13 @@ section {
 }
 
 @keyframes progress-fill {
-    from { width: 0%; }
-    to { width: 100%; }
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
 .progress-bar.active {
@@ -567,7 +610,8 @@ section {
 .exploring-grid .step {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
-    padding: 1.5rem;
+    padding: 2.5rem 2rem;
+    /* Increased padding */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -922,7 +966,7 @@ footer {
 
 .section-mono-label {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: var(--accent-color);
     margin-bottom: 1rem;
     display: block;
@@ -1019,6 +1063,223 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    /* Layout & Global */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Typography - Fluid */
+    h1.name {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+        font-size: 0.7rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        line-height: 1.4;
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+    }
+
+    .huge-title {
+        font-size: clamp(1.5rem, 7vw, 2.5rem);
+    }
+
+    .section-subtitle {
+        margin-bottom: 3.5rem;
+        /* Standardized spacing before section content */
+        font-size: 0.8rem;
+    }
+
+    section {
+        padding: 10rem 0;
+        /* Restored to 10rem to satisfy 'much more space' request */
+        min-height: auto;
+    }
+
+    #career,
+    #diagnosed {
+        margin-top: 4rem;
+    }
+
+    #exploring {
+        margin-top: 10rem;
+        /* Increased to ensure distinct separation from Systems */
+    }
+
+    .hero-subtitle,
+    .hero-highlights p {
+        white-space: normal !important;
+    }
+
+    /* Navigation - Hamburger Overhaul */
+    .nav-container {
+        padding: 0.75rem 1.5rem;
+        /* Reduced from 1.25rem */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+        /* Reduced from 1.5rem */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(4, 8, 22, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 10000;
+        border-left: 1px solid var(--border-color);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        letter-spacing: 0.2em;
+    }
+
+    /* Hero */
+    .tagline {
+        font-size: 0.75rem !important;
+        margin-bottom: 1.5rem !important;
+        color: var(--accent-color) !important;
+    }
+
+    .hero-highlights p {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+        /* Tighter highlights */
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        /* Even tighter gap */
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 0.75rem 1.25rem;
+        /* Smaller padding */
+        font-size: 0.75rem;
+        /* Smaller font */
+    }
+
+    /* Career Arc */
+    .chapter-card {
+        padding: 1.5rem;
+    }
+
+    .chapter-card h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Case Studies */
+    .case-item {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem 1rem;
+        margin: 0;
+        /* Remove negative margins */
+    }
+
+    .case-num {
+        font-size: 2.5rem;
+        opacity: 0.3;
+    }
+
+    .case-item h3 {
+        font-size: clamp(1.25rem, 6vw, 1.75rem);
+        line-height: 1.2;
+    }
+
+    /* Systems Built */
+    .system-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .mockup-img.dashboard-demo {
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 8px;
+    }
+
+    /* Exploring Section - Padding Fix */
+    .exploring-grid {
+        margin: 3rem 0;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .exploring-grid .step {
+        padding: 2.5rem 2rem;
+        /* Increased padding to match global fix */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .exploring-grid .step:last-child {
+        border-bottom: none;
+    }
+
+    .cyclic-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cyclic-grid .step {
+        padding: 1.5rem;
+    }
+
+    .cyclic-grid .step:not(:last-child)::after {
+        display: block;
+        content: '↓';
+        position: absolute;
+        top: 100%;
+        /* Position from bottom edge */
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1.5rem;
+        /* Match gap */
+        line-height: 1.5rem;
+        font-size: 1.75rem;
+        color: var(--accent-color);
+        opacity: 0.7;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    /* Article Pages Specific */
     .article-header h1 {
         font-size: 2.5rem;
     }
@@ -1026,6 +1287,33 @@ footer {
     .article-section h2,
     .diagnostic-box h3 {
         font-size: 1.75rem;
+    }
+
+    /* Footer - Reduced Size */
+    footer {
+        padding: 3rem 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        gap: 1.5rem;
+    }
+
+    .case-footer-nav {
+        padding: 2rem 0;
+        margin-top: 4rem;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-nav-links {
+        gap: 1.5rem;
     }
 }
 
@@ -1055,22 +1343,11 @@ footer {
 }
 
 @media (max-width: 900px) {
-    .container {
-        padding: 0 2rem;
-    }
-
-    .nav-container {
-        padding: 1.5rem 2rem;
-    }
-
     .horizontal-zigzag {
         flex-direction: column;
-        gap: 2rem;
-    }
-
-    .hero-subtitle {
-        white-space: normal;
-        font-size: 1.4rem;
+        gap: 2.5rem;
+        padding: 2rem 0;
+        min-width: auto;
     }
 
     .chapter-card {
@@ -1085,20 +1362,15 @@ footer {
     }
 
     .systems-grid,
-    .exploring-grid,
-    .cyclic-grid {
+    .exploring-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .cyclic-grid .step:not(:last-child)::after,
-    .cyclic-grid .step:not(:last-child)::before {
-        display: none;
     }
 
     .exploring-grid .step {
         border-right: none;
         border-bottom: 1px solid var(--border-color);
+        padding: 2.5rem 2rem;
     }
 
     .exploring-grid .step:last-child {
@@ -1106,7 +1378,7 @@ footer {
     }
 
     .flowchart-wrapper {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 }
 
