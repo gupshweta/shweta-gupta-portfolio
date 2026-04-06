@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study 02 - Portfolio Performance Architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Shweta</a>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#career">CAREER ARC</a></li>
+                <li><a href="index.html#diagnosed">CASE STUDIES</a></li>
+                <li><a href="index.html#solved">SYSTEMS</a></li>
+                <li><a href="index.html#exploring">EXPLORING</a></li>
+                <li><a href="index.html#how">HOW I THINK</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <header class="article-header">
+            <span class="article-tags">COUNTERPARTY RISK · CAPITAL OPTIMIZATION</span>
+            <h1><em>The credit line said "No."</em> The portfolio structure said otherwise.</h1>
+            <p class="article-tagline">A counterparty’s exposure had hit the terminal appetite—the hard ceiling where
+                risk appetite and revenue potential collide. Expanding the line was a non-starter, yet multiple desks
+                saw high-quality, lucrative opportunities left on the table.</p>
+            <div class="article-meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>3 min read</span>
+            </div>
+        </header>
+
+        <section class="outcome-box">
+            <span class="outcome-label">OUTCOME</span>
+            <div class="outcome-highlight">
+                <p><strong>$150M in additional trading capacity unlocked</strong> by recognizing cross-product netting
+                    benefits—allowing business growth without increasing the net risk footprint.
+                </p>
+            </div>
+            <p class="outcome-subtext">The framework and methodology below are distilled from this experience. All
+                figures are illustrative of the structural approach used to resolve the capacity bottleneck.</p>
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">01. THE CONTEXT</span>
+            <h2>Inefficient capital allocation starts with <em>fragmented data</em>.</h2>
+            <p>One client, three business lines, three disconnected legal wrappers. The risk system viewed these as
+                independent risks, failing to account for the natural hedges between them.</p>
+
+            <div class="risk-table-wrapper">
+                <table class="risk-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Business Line</th>
+                            <th onclick="sortTable(1)">Legal Document</th>
+                            <th onclick="sortTable(2)">Gross Exposure</th>
+                            <th onclick="sortTable(3)">Margin Held</th>
+                            <th onclick="sortTable(4)">Net Risk (Siloed)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Synthetics</td>
+                            <td>Prime Brokerage</td>
+                            <td>$400M</td>
+                            <td>$50M</td>
+                            <td>$350M</td>
+                        </tr>
+                        <tr>
+                            <td>Stockloan</td>
+                            <td>GMSLA</td>
+                            <td>$200M</td>
+                            <td>$30M</td>
+                            <td>$170M</td>
+                        </tr>
+                        <tr>
+                            <td>OTC Derivatives</td>
+                            <td>ISDA</td>
+                            <td>$300M</td>
+                            <td>$40M</td>
+                            <td>$260M</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td>TOTAL</td>
+                            <td>—</td>
+                            <td>$900M</td>
+                            <td>$120M</td>
+                            <td>$780M (At Cap)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Illustrative data representing the "Pre-MNET" state where offsets are ignored.</p>
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">02. THE PROBLEM</span>
+            <h2>When <em>Risk-Off</em> blocks <em>Alpha-On</em>.</h2>
+            <p><strong>The Cap:</strong> Credit Risk had set a hard limit at $780M.</p>
+
+            <!-- <p><strong>The Conflict:</strong> To get to Full Reval, the engine had to stop being a passive consumer and
+                start being an
+                active participant.</p> -->
+
+            <p><strong>The Constraint:</strong> The Synthetics and OTC desks wanted to increase exposure by $150M to
+                capture market volatility.</p>
+
+            <p><strong>The Reality:</strong> Under the current siloed calculation, any new trade would breach the
+                terminal appetite. However, the client's Stockloan positions were often directional hedges against their
+                Synthetics portfolio. We were holding capital against risk that didn't economically exist.</p>
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">03. THE SOLUTION</span>
+            <h2>Integrating <em>legal and mathematical risk</em> into a single lens.</h2>
+            <p>The solution wasn't to ask for more risk—it was to measure the risk more accurately.</p>
+
+            <p><strong>Structural Breakdown:</strong></p>
+            <p>Deconstruct the Prime Brokerage and OTC business lines to identify overlapping risk factors. This
+                required a deep dive into the underlying collateral and sensitivity (Greeks) across all three desks.</p>
+
+            <p><strong>The MNET Overlay:</strong></p>
+            <p>Conceptualize a Master Netting (MNET) Agreement. This is a legal "bridge" that allows the Firm to net
+                obligations across different legal documents (ISDA, GMSLA, PB) in a default scenario.</p>
+
+            <p><strong>Cross-Functional Execution:</strong></p>
+            <p><strong>Legal: </strong>Drafted the overlay to ensure enforceability across jurisdictions.</p>
+            <p><strong>Model Risk: </strong>Validated that the PFE (Potential Future Exposure) models could handle
+                cross-product correlations.</p>
+            <p><strong>Credit Risk: </strong>Shifted the monitoring from "Sum of Silos" to a "Portfolio-Level" view.</p>
+
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">04. THE ASSUMPTIONS</span>
+            <h2>Where it <em>Breaks</em></h2>
+            <p><strong>Legal Enforceability Risk</strong></p>
+            <p>If the MNET overlay isn't legally robust in the client’s home jurisdiction, a liquidator could
+                "cherry-pick"—demanding payment on winning trades while defaulting on losing ones. Netting only works if
+                it's legally bulletproof.</p>
+            <p> </p>
+            <p><strong>Correlation Breakdown</strong></p>
+            <p>Netting assumes that if one position loses value, another (the hedge) will gain. In extreme market
+                stress, correlations can break. Your "offset" might vanish exactly when you need it most.</p>
+            <p> </p>
+            <p><strong>Liquidity Mismatches</strong></p>
+            <p>Netting a highly liquid Stockloan position against an illiquid OTC derivative is risky. If you can't exit
+                the hedge at the same speed as the primary exposure, the "netted" view is an illusion.</p>
+            <p> </p>
+            <p><strong>Operational Complexity</strong></p>
+            <p>Consolidating margin across three different desks requires sophisticated collateral management systems.
+                If your operations team can't track the unified margin call, you risk being under-collateralized.</p>
+        </section>
+
+        <div class="diagnostic-box">
+            <span class="section-mono-label">REPLICABLE DIAGNOSTIC</span>
+            <h3>Use <em>structural innovation</em> to bypass artificial limits.</h3>
+            <p>When a credit line is full, don't ask for a higher limit—look for Unrecognized Netting.</p>
+
+            <p><strong>The Test:</strong> Map your top 10 counterparties. For those at their limit, calculate the
+                "Gross-to-Net" ratio
+                across all legal documents. If the ratio is high, you have a documentation problem, not a risk problem.
+            </p>
+            <div class="diagnostic-divider"></div>
+            <p class="diagnostic-footer">Risk Management isn't just about saying "No"; it's about building the
+                infrastructure that allows the business to say "Yes" safely.</p>
+        </div>
+
+        <footer class="case-footer-nav">
+            <div class="footer-nav-links">
+                <a href="index.html">HOME</a>
+                <a href="case1.html">RISK STRATEGY</a>
+                <a href="case2.html" class="active">ARCHITECTURE DESIGN</a>
+                <a href="case3.html">ACADEMIC REFORM</a>
+            </div>
+        </footer>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 Shweta Gupta</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/shwetagupta1911/" target="_blank">LinkedIn</a>
+                <a href="https://drive.google.com/file/d/1JI1RJRkCQ41tu53hZUmBy1uWU3J_yPUE/view?usp=sharing" target="_blank">Resume</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

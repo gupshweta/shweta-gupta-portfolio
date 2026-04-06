@@ -1,0 +1,47 @@
+# Shweta Gupta - Case Study Content
+
+Please populate the following sections for each case study. I will use this content to style your "Problems Diagnosed" section.
+
+---
+
+## Case Study 01: Full Revaluation Methodology Migration
+**Meta Label:** REGULATORY STRATEGY · RWA
+**Core Problem:** 
+[Write 2-3 sentences about the technical or strategic problem you were solving.]
+**Impact Metrics:** 
+[Example: Managed $1.25B RWA, Reduced reporting time by X%]
+**Key Outcome:**
+[One sentence on the final result.]
+
+---
+
+## Case Study 02: Integrated Risk-Data Workflow Roadmap
+**Meta Label:** OPERATIONAL EFFICIENCY · AUTOMATION
+**Core Problem:**
+[Write 2-3 sentences about the workflow inefficiencies.]
+**Impact Metrics:**
+[Example: 50% efficiency boost, Automated 20+ models]
+**Key Outcome:**
+[One sentence on the final result.]
+
+---
+
+## Case Study 03: Vintage Early Warning System
+**Meta Label:** CREDIT RISK · EARLY WARNINGS
+**Core Problem:**
+[Write 2-3 sentences about the cohort quality issues.]
+**Impact Metrics:**
+[Example: Early detection of X% decline, Stabilized returns]
+**Key Outcome:**
+[One sentence on the final result.]
+
+---
+
+## Case Study 04: [Insert Project Title]
+**Meta Label:** [Insert Label]
+**Core Problem:**
+[Content here]
+**Impact Metrics:**
+[Content here]
+**Key Outcome:**
+[Content here]

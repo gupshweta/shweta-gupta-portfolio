@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study 01 - Full Revaluation Methodology Migration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Shweta</a>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#career">CAREER ARC</a></li>
+                <li><a href="index.html#diagnosed">CASE STUDIES</a></li>
+                <li><a href="index.html#solved">SYSTEMS</a></li>
+                <li><a href="index.html#exploring">EXPLORING</a></li>
+                <li><a href="index.html#how">HOW I THINK</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <header class="article-header">
+            <span class="article-tags">REGULATORY STRATEGY · RWA</span>
+            <h1>The Greeks were fine. <em>The market wasn't.</em></h1>
+            <p class="article-tagline">A risk framework built on Delta and Gamma alone was missing the most critical
+                signal in the portfolio—how assets actually behave when the "unthinkable" happens.</p>
+            <div class="article-meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>3 min read</span>
+            </div>
+        </header>
+
+        <section class="outcome-box">
+            <span class="outcome-label">OUTCOME</span>
+            <div class="outcome-highlight">
+                <p>Secured <strong>PRA compliance</strong> by bridging the gap between <strong>front-office reality and
+                        back-office models</strong>.
+                </p>
+            </div>
+            <p class="outcome-subtext">This project wasn't just a technical upgrade; it was a high-stakes reconciliation
+                of three different worldviews: the Trader (who wants precision), the Regulator (who wants stability),
+                and the System (which was never built to talk to both at once). The shift from Greek-based VaR to Full
+                Reval is effectively the "Coming of Age" story for market risk infrastructure.</p>
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">01. THE CONTEXT</span>
+            <h2><em>"Close enough"</em> is no longer a regulatory strategy.</h2>
+            <p>In a "quiet" market, Taylor-series approximations (Greeks) are brilliant. They are fast, light, and
+                "close enough." But the <strong>PRA</strong> and <strong>FRTB</strong> standards were born from the
+                realization that "close enough" is how
+                banks fail during a liquidity crunch.
+
+                The business mandate was clear: </strong>The Risk Model must match the Trading Desk.</strong> If a
+                Trader’s book shows a
+                massive loss due to a barrier breach, the Risk Manager’s dashboard cannot show a minor dip just because
+                a "Gamma approximation" smoothed out the curve. This isn't just a math error; it’s a capital
+                misallocation.</p>
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">02. THE PROBLEM / TECH DEBT</span>
+            <h2>Performing <em>open-heart surgery</em> on a running engine</h2>
+            <p>Our legacy engines were designed to be "Sensitivity Consumers." They were built to ingest a flat file of
+                Greeks once a day and do basic multiplication.</p>
+
+            <p><strong>The Conflict:</strong> To get to Full Reval, the engine had to stop being a passive consumer and
+                start being an
+                active participant.</p>
+
+            <p><strong>The Constraint:</strong> We couldn't just throw away the legacy system—it was the "Source of
+                Truth" for
+                reporting. We had to integrate sophisticated valuation logic into a batch-processing world without
+                breaking the daily reporting cycle.</p>
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">03. THE SOLUTION</span>
+            <h2>Unifying the <em>Risk</em> brain and the <em>Trading</em> brain.</h2>
+            <p>My role was to act as the architect of the transition, balancing three competing priorities:</p>
+
+            <div class="flowchart-wrapper reveal">
+                <pre class="mermaid">
+flowchart TD
+
+%% =========================
+%% Styles (Matched to Site)
+%% =========================
+classDef quant fill:#16202A,stroke:#3A7CA5,color:#D6E6F2;
+classDef eng fill:#132A24,stroke:#2FA87C,color:#D7F5EA;
+classDef decision fill:#2A2116,stroke:#C89B3C,color:#F3E9D2;
+classDef collab fill:#24182F,stroke:#8A63D2,color:#E9DDF7;
+
+%% =========================
+%% Flow (Condensed)
+%% =========================
+
+A[Risk Gap]:::quant -->
+B[Problem Desks]:::quant -->
+C{PLA Pass}:::decision
+
+C -- No --> D[Risk Alignment]:::collab -->
+E[Scale + APIs]:::eng -->
+F{Perf OK}:::decision
+
+F -- No --> E
+F -- Yes --> G[Reval Integration]:::eng -->
+H[Compare Models]:::quant -->
+I{Stable}:::decision
+
+I -- No --> G
+I -- Yes --> J[MRM Review]:::collab -->
+K{Approved}:::decision
+
+K -- No --> E
+K -- Yes --> L[Deploy]:::eng
+                </pre>
+            </div>
+
+            <p><strong>The Quant Alignment (Risk):</strong> I ensured "Conceptual Soundness." If the Front Office pricer
+                uses a specific
+                volatility surface, the Risk Model must use the exact same one. I defined the Data Contract—the specific
+                market inputs and trade attributes that ensure the "Risk" price and the "Trade" price are identical.</p>
+
+            <p><strong>The Technical Pivot (Systems):</strong> We moved toward a Service-Oriented Architecture. By
+                wrapping the C++
+                pricing libraries into high-performance API calls, we allowed the Legacy Engine to "query" the Front
+                Office’s valuation logic. This wasn't just "making an API"; it was an architectural shift in how risk is
+                calculated.</p>
+
+            <p><strong>The Regulatory Defense (Business):</strong> I led the Parallel Runs. For months, we sat with the
+                old and new
+                models side-by-side. I had to explain to Model Risk Management (MRM) exactly why the numbers changed. If
+                VaR jumped by 20%, I proved it wasn't a bug—it was the system finally seeing a risk that had been
+                invisible for a decade.</p>
+        </section>
+
+        <section class="article-section">
+            <span class="section-mono-label">04. THE ASSUMPTIONS</span>
+            <h2>Where it <em>Breaks</em></h2>
+            <p><strong>The Data "Basis":</strong> You can have the best API in the world, but if the Front Office uses
+                "Mid" prices and
+                Risk uses "Bid/Ask," your Full Reval will still fail the PLA test. The struggle is often in the data
+                cleaning, not the code.</p>
+
+            <p><strong>The Governance Bottleneck:</strong> The hardest part isn't the math—it's the documentation.
+                Convincing a
+                skeptical validator that an API-driven approach is "stable" requires a deep understanding of both the
+                code and the credit risk.</p>
+
+            <p><strong>The "Black Box" Trap:</strong> When the Risk Model and the Trading Model are the same, you lose
+                your "Second Pair
+                of Eyes." I had to design Independent Sanity Checks (like Greek-based thresholds) to ensure that if the
+                Front Office pricer had a "fat-finger" error, the Risk system would flag it instead of blindly trusting
+                it.</p>
+        </section>
+
+        <div class="diagnostic-box">
+            <span class="section-mono-label">REPLICABLE DIAGNOSTIC</span>
+            <h3><em>Architecture</em> is the ultimate risk mitigator.</h3>
+            <p>If your risk team spends 80% of their morning <strong>explaining away</strong> discrepancies between
+                their VaR and the
+                previous day's actual P&L, you don't have a data problem. You have an <strong>Architecture
+                    Problem</strong>.</p>
+            <p>The move to Full Reval isn't just about passing a regulatory test; it's about making sure that when the
+                next "Black Swan" event hits, the Risk Manager isn't the last person in the room to know the score.</p>
+            <div class="diagnostic-divider"></div>
+            <p class="diagnostic-footer">Greeks are an estimate. Full Revaluation is the truth.</p>
+        </div>
+
+        <footer class="case-footer-nav">
+            <div class="footer-nav-links">
+                <a href="index.html">HOME</a>
+                <a href="case1.html" class="active">RISK STRATEGY</a>
+                <a href="case2.html">ARCHITECTURE DESIGN</a>
+                <a href="case3.html">ACADEMIC REFORM</a>
+            </div>
+        </footer>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 Shweta Gupta</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/shwetagupta1911/" target="_blank">LinkedIn</a>
+                <a href="https://drive.google.com/file/d/1JI1RJRkCQ41tu53hZUmBy1uWU3J_yPUE/view?usp=sharing" target="_blank">Resume</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
