@@ -279,8 +279,7 @@ section {
 /* Horizontal Zigzag Timeline */
 .timeline-wrapper {
     position: relative;
-    padding: 0 0 10rem 0;
-    /* Removed top padding to reduce gap */
+    padding: 10rem 0;
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -301,7 +300,7 @@ section {
     padding: 0 0rem;
     min-width: max-content;
     position: relative;
-    min-height: 300px;
+    min-height: 500px;
 }
 
 .chapter-card {
@@ -1343,11 +1342,16 @@ footer {
 }
 
 @media (max-width: 900px) {
+    .timeline-wrapper {
+        padding-top: 0;
+    }
+
     .horizontal-zigzag {
         flex-direction: column;
         gap: 2.5rem;
         padding: 2rem 0;
         min-width: auto;
+        min-height: auto;
     }
 
     .chapter-card {
