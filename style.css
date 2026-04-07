@@ -526,6 +526,12 @@ section {
     position: relative;
 }
 
+.system-block:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.1);
+    transform: translateY(-4px);
+}
+
 .mockup-img {
     aspect-ratio: 1881 / 1092;
     background: #1e293b;
